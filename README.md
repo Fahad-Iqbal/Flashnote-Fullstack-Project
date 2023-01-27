@@ -10,3 +10,7 @@
 > As an anatomy and physiology student, I want to make a flashcard with an anatomy diagram with the labels blocked out, and then I want to test myself on the diagram one label at a time.
 
 > As a French language instructor, I want to create notes and flashcards that are relevant to my course, and share them with my students as a learning resource.
+
+## Figma Design
+
+Here is the [Figma link](https://www.figma.com/file/qLDlZ9jFJyVfCwlUggwRTH/FlashNote-Project?t=dlnkvsX8MIRRQTuq-1) for the project. It has limited interactivity and the design for each device size is on a separate page.
