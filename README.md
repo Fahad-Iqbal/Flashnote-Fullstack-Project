@@ -26,4 +26,13 @@ Apart from just taking notes, a user can:
 - generate reversible flashcards, where either the front or the back of the card can be shown as the question
 - generate [cloze deletion](https://en.wikipedia.org/wiki/Cloze_test) flashcards, which contain 'fill in the blank' style questions
 - generate image occulsion flashcards like the example shown below
-  - <details><summary>Image occulsion flashcard example</summary>lskdjfa</details>
+  - ![image](https://user-images.githubusercontent.com/14140389/215241373-541afb8c-411d-4401-9749-e400723ff5e1.png)
+  - ![image](https://user-images.githubusercontent.com/14140389/215241394-6bf81b9f-9dea-4fdf-ab62-ea5dcb083174.png)
+- generate a link for a document that can be shared with all users
+
+An admin can:
+- do everything a user can
+- share a read only document with a select group of users
+
+
+
