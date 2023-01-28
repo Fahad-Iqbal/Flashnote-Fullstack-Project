@@ -17,3 +17,13 @@
 
 Here is the [Figma link](https://www.figma.com/file/qLDlZ9jFJyVfCwlUggwRTH/FlashNote-Project?t=dlnkvsX8MIRRQTuq-1) for the project. It has limited interactivity and the design for each device size is on a separate page.
 
+## Functionality
+
+FlashNote is a note-taking and flashcard app that makes use of learning techniques such as [active recall](https://en.wikipedia.org/wiki/Testing_effect) and [spaced repetition](https://en.wikipedia.org/wiki/Spaced_repetition).
+
+Apart from just taking notes, a user can:
+- generate standard flashcards with the question on the front and the answer on the back
+- generate reversible flashcards, where either the front or the back of the card can be shown as the question
+- generate [cloze deletion](https://en.wikipedia.org/wiki/Cloze_test) flashcards, which contain 'fill in the blank' style questions
+- generate image occulsion flashcards like the example shown below
+  - <details><summary>Image occulsion flashcard example</summary>lskdjfa</details>
