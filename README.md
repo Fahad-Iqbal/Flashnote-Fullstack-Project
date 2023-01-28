@@ -32,7 +32,7 @@ Apart from just taking notes, a user can:
 
 An admin can:
 - do everything a user can
-- share a read only document with a select group of users
+- share a document with a select group of users
 
 
 
