@@ -20,16 +20,19 @@ body {
 /**---------------------------- Header Section ----------------------------*/
 .header {
   display: flex;
-  padding: 1rem 2rem 2rem;
+  padding: 0.5rem 2rem 2rem;
   justify-content: space-between;
   box-shadow: 0 0.1rem 0.8rem 0 #001f2785;
+  background-color: white;
+  width: 100%;
+  position: fixed;
 }
 
 /*------------------------------ Logo Design ------------------------------*/
 .logo-container {
   font-family: "DM Serif Display", serif;
   display: flex;
-  height: 4.8rem;
+  height: 4rem;
   width: auto;
   gap: 0.5rem;
   align-items: baseline;
@@ -39,24 +42,28 @@ body {
   height: 80%;
   display: block;
   object-fit: cover;
+  transform: translateY(0.2rem);
+}
+.logo-text-container {
+  height: 100%;
 }
 .logo-text {
   display: inline-block;
   height: 100%;
-  font-size: 4.8rem;
+  font-size: 4rem;
   font-weight: 400;
   color: #001f27;
 }
 .logo-text span {
-  height: 122%;
+  height: 120%;
   display: inline-block;
-  border-bottom: 0.35rem #720000 solid;
+  border-bottom: 0.3rem #720000 solid;
   color: #720000;
 }
 
 /*----------------------------- Log out button -----------------------------*/
 .log-out {
-  height: 80%;
+  height: 60%;
   display: block;
   border: 0.2rem solid #00758e;
   border-radius: 0.8rem;
@@ -64,7 +71,7 @@ body {
   font-size: 1.6rem;
   font-weight: 500;
   background-color: transparent;
-  padding: 0.4rem 1.2rem;
+  padding: 0.2rem 1rem;
   align-self: flex-end;
 }
-/** -------------------------------------------------------------------------- */
+/** --------------------------End of Header Section---------------------------- **/
