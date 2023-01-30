@@ -1,0 +1,70 @@
+*,
+*::before,
+*::after {
+  /* Global reset on all default browser margins and paddings */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* border: 1px dashed black; */
+}
+
+html {
+  /* 1rem = 10px for all elements*/
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+/**---------------------------- Header Section ----------------------------*/
+.header {
+  display: flex;
+  padding: 1rem 2rem 2rem;
+  justify-content: space-between;
+  box-shadow: 0 0.1rem 0.8rem 0 #001f2785;
+}
+
+/*------------------------------ Logo Design ------------------------------*/
+.logo-container {
+  font-family: "DM Serif Display", serif;
+  display: flex;
+  height: 4.8rem;
+  width: auto;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+.logo-icon {
+  width: auto;
+  height: 80%;
+  display: block;
+  object-fit: cover;
+}
+.logo-text {
+  display: inline-block;
+  height: 100%;
+  font-size: 4.8rem;
+  font-weight: 400;
+  color: #001f27;
+}
+.logo-text span {
+  height: 122%;
+  display: inline-block;
+  border-bottom: 0.35rem #720000 solid;
+  color: #720000;
+}
+
+/*----------------------------- Log out button -----------------------------*/
+.log-out {
+  height: 80%;
+  display: block;
+  border: 0.2rem solid #00758e;
+  border-radius: 0.8rem;
+  color: #00758e;
+  font-size: 1.6rem;
+  font-weight: 500;
+  background-color: transparent;
+  padding: 0.4rem 1.2rem;
+  align-self: flex-end;
+}
+/** -------------------------------------------------------------------------- */
