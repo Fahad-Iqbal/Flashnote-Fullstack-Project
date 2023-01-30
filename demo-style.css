@@ -15,6 +15,17 @@ html {
 
 body {
   font-family: "Inter", sans-serif;
+  height: 100vh;
+}
+
+button {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
 }
 
 /**---------------------------- Header Section ----------------------------*/
@@ -64,7 +75,6 @@ body {
 /*----------------------------- Log out button -----------------------------*/
 .log-out {
   height: 60%;
-  display: block;
   border: 0.2rem solid #00758e;
   border-radius: 0.8rem;
   color: #00758e;
@@ -73,5 +83,129 @@ body {
   background-color: transparent;
   padding: 0.2rem 1rem;
   align-self: flex-end;
+  cursor: pointer;
 }
-/** --------------------------End of Header Section---------------------------- **/
+/** --------------------------End of Header Section------------------------**/
+
+main {
+  display: flex;
+  height: 100%;
+}
+.side-nav:has(.hamburger-checkbox:checked) > .side-nav__contents {
+  background-color: #001f27;
+}
+
+.hamburger-checkbox {
+  z-index: 100;
+}
+
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  height: 100%;
+  gap: 5rem;
+  z-index: 1;
+}
+
+.side-nav__contents {
+  height: 100%;
+  width: 100%;
+  margin-top: 1rem;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 2px solid #001f27;
+  padding: 0.5rem;
+}
+
+.side-nav__contents--top {
+  flex-direction: column;
+  gap: 3rem;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+.user {
+  width: 100%;
+  justify-content: space-between;
+}
+.search-button {
+  width: 100%;
+}
+
+.documents-section {
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.side-nav__contents,
+.side-nav__contents--top,
+.user,
+.search-button,
+.primary-button,
+.secondary-button,
+.docs,
+.documents-section,
+.docs--links,
+.draft,
+.finished {
+  display: flex;
+  width: 100%;
+}
+
+.draft-section:has(input:not(checked)) > .docs,
+.finished-section:has(input:not(checked)) > .docs {
+  display: none;
+}
+
+.draft-section:has(input:checked) > .docs,
+.finished-section:has(input:checked) > .docs {
+  display: flex;
+}
+
+.draft:has(input:checked) > img,
+.finished:has(input:checked) > img {
+  transform: rotate(90deg);
+}
+
+.docs {
+  flex-direction: column;
+}
+
+.docs--links {
+  margin-left: 2rem;
+  padding: 0.5rem;
+  gap: 1rem;
+}
+
+.docs--links img {
+  width: auto;
+  height: 1.7rem;
+  object-fit: cover;
+}
+
+.primary-button {
+  border: none;
+  background-color: #006981;
+  align-items: center;
+  gap: 1rem;
+  color: #f2f2f2;
+  padding: 1rem 2rem;
+  border-radius: 0.2rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+.primary-button img {
+  height: 1.8rem;
+  width: 1.8rem;
+  /* object-fit: cover; */
+}
+.primary-button span {
+  text-decoration: underline;
+}
+.create img {
+  height: 1.6rem;
+  width: auto;
+  object-fit: cover;
+}

@@ -16,12 +16,21 @@
     <title>FlashNote Demo</title>
 
     <!-- favicon -->
-    <link rel="icon" type="image" href="flashnote_favicon.png" />
+    <link
+      rel="icon"
+      type="image"
+      href="https://res.cloudinary.com/drbpsxnln/image/upload/v1675047201/flashnote_favicon_r82yd8.png"
+    />
   </head>
   <body>
+    <!-- Header section -->
     <header class="header">
       <div class="logo-container">
-        <img class="logo-icon" src="/Icon.png" alt="icon" />
+        <img
+          class="logo-icon"
+          src="https://res.cloudinary.com/drbpsxnln/image/upload/v1675047201/Icon_rkfp37.png"
+          alt="icon"
+        />
         <div class="logo-text-container">
           <div class="logo-text">Flash<span>N</span>ote</div>
         </div>
@@ -29,10 +38,168 @@
       <button class="log-out">Log out</button>
     </header>
     <main>
+      <!-- Side Nav and Hamburger Menu-->
       <nav class="side-nav">
-        <div class="hamburger"></div>
-        <div class="side-nav__contents"></div>
+        <!-- Hamburger menu -->
+        <div class="hamburger">
+          <label
+            ><input class="hamburger-checkbox" type="checkbox" />
+            <div class="hamburger__center-line"></div>
+          </label>
+        </div>
+        <!-- Side Bar -->
+        <div class="side-nav__contents">
+          <!-- Top part of side bar -->
+          <div class="side-nav__contents--top">
+            <div class="user">
+              <img
+                class="user-logo"
+                src="https://res.cloudinary.com/drbpsxnln/image/upload/v1675047823/Vector_aibzke.svg"
+                alt="User"
+              />
+              <div class="user-name"><p>fahad_i</p></div>
+              <img
+                class="user-options-logo"
+                src="https://res.cloudinary.com/drbpsxnln/image/upload/v1675048304/Vector_5_xa7gd4.svg"
+                alt="Ellipsis"
+              />
+            </div>
+            <div class="search">
+              <button class="search-button">
+                <img
+                  src="https://res.cloudinary.com/drbpsxnln/image/upload/v1675048711/Vector_6_fpgans.svg"
+                  alt="Search Logo"
+                  class="search-logo"
+                />
+                <p>Search</p>
+              </button>
+            </div>
+            <div class="documents-section">
+              <button class="practice primary-button">
+                <img
+                  src="https://res.cloudinary.com/drbpsxnln/image/upload/v1675047823/Vector_1_ibhk9b.svg"
+                  alt="Flashcards"
+                />
+                <p>Practice <span>F</span>lashcards</p>
+              </button>
+              <button class=".all-documents secondary-button">
+                <img
+                  src="https://res.cloudinary.com/drbpsxnln/image/upload/v1675047823/Vector_2_yvljzo.svg"
+                  alt="Documents logo"
+                />
+                <p>All Documents</p>
+              </button>
+              <div class="draft-section">
+                <label class="draft">
+                  <input type="checkbox" />
+                  <img
+                    src="https://res.cloudinary.com/drbpsxnln/image/upload/v1675047823/Vector_3_drymhl.svg"
+                    alt="Caret symbol"
+                  />
+                  <p>Draft</p>
+                </label>
+
+                <div class="draft-docs docs">
+                  <a href="#" class="docs--links">
+                    <img
+                      src="https://res.cloudinary.com/drbpsxnln/image/upload/v1675047823/Vector_2_yvljzo.svg"
+                      alt="Document logo"
+                    />
+                    <p>Chemistry</p>
+                  </a>
+                  <a href="#" class="docs--links">
+                    <img
+                      src="https://res.cloudinary.com/drbpsxnln/image/upload/v1675047823/Vector_2_yvljzo.svg"
+                      alt="Document logo"
+                    />
+                    <p>Spanish 101</p>
+                  </a>
+                  <a href="#" class="docs--links">
+                    <img
+                      src="https://res.cloudinary.com/drbpsxnln/image/upload/v1675047823/Vector_2_yvljzo.svg"
+                      alt="Document logo"
+                    />
+                    <p>General Biology</p>
+                  </a>
+                  <a href="#" class="docs--links">
+                    <img
+                      src="https://res.cloudinary.com/drbpsxnln/image/upload/v1675047823/Vector_2_yvljzo.svg"
+                      alt="Document logo"
+                    />
+                    <p>Psy 101</p>
+                  </a>
+                  <a href="#" class="docs--links">
+                    <img
+                      src="https://res.cloudinary.com/drbpsxnln/image/upload/v1675047823/Vector_2_yvljzo.svg"
+                      alt="Document logo"
+                    />
+                    <p>Anatomy</p>
+                  </a>
+                </div>
+              </div>
+              <div class="finished-section">
+                <label class="finished">
+                  <input type="checkbox" />
+                  <img
+                    src="https://res.cloudinary.com/drbpsxnln/image/upload/v1675047823/Vector_3_drymhl.svg"
+                    alt="Caret symbol"
+                  />
+                  <p>Finished</p>
+                </label>
+
+                <div class="finished-docs docs">
+                  <a href="#" class="docs--links">
+                    <img
+                      src="https://res.cloudinary.com/drbpsxnln/image/upload/v1675047823/Vector_2_yvljzo.svg"
+                      alt="Document logo"
+                    />
+                    <p>Calc 1</p>
+                  </a>
+                  <a href="#" class="docs--links">
+                    <img
+                      src="https://res.cloudinary.com/drbpsxnln/image/upload/v1675047823/Vector_2_yvljzo.svg"
+                      alt="Document logo"
+                    />
+                    <p>World Geography</p>
+                  </a>
+                  <a href="#" class="docs--links">
+                    <img
+                      src="https://res.cloudinary.com/drbpsxnln/image/upload/v1675047823/Vector_2_yvljzo.svg"
+                      alt="Document logo"
+                    />
+                    <p>Linear algebra</p>
+                  </a>
+                  <a href="#" class="docs--links">
+                    <img
+                      src="https://res.cloudinary.com/drbpsxnln/image/upload/v1675047823/Vector_2_yvljzo.svg"
+                      alt="Document logo"
+                    />
+                    <p>Essay Project</p>
+                  </a>
+                  <a href="#" class="docs--links">
+                    <img
+                      src="https://res.cloudinary.com/drbpsxnln/image/upload/v1675047823/Vector_2_yvljzo.svg"
+                      alt="Document logo"
+                    />
+                    <p>Final project ideas</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Bottom Part of side bar -->
+          <div class="side-nav__contents--bottom">
+            <button class="create primary-button">
+              <img
+                src="https://res.cloudinary.com/drbpsxnln/image/upload/v1675047823/Vector_4_hzjlkw.svg"
+                alt="Plus logo"
+              />
+              <p><span>C</span>reate</p>
+            </button>
+          </div>
+        </div>
       </nav>
+      <section class="notes-section"></section>
     </main>
   </body>
 </html>
