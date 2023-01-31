@@ -92,16 +92,21 @@ a {
 main {
   display: flex;
   height: 100%;
+  transition: all 0.2s ease-in-out;
 }
 
 /*-------------------------------- Side Nav --------------------------------*/
 
-.side-nav:has(.hamburger-checkbox:checked) > .side-nav__contents {
-  background-color: #001f27;
-}
-
 .hamburger-checkbox {
   z-index: 100;
+}
+
+.hamburger {
+  z-index: 1;
+  position: absolute;
+
+  transform: translateX(50rem);
+  background-color: black;
 }
 
 .side-nav {
@@ -116,7 +121,7 @@ main {
 .side-nav__contents {
   height: 100vh;
   width: 100%;
-  margin-top: 0rem;
+  margin-top: 6.5rem;
   flex-direction: column;
   justify-content: space-between;
   border-right: 2px solid #cce1e6;
@@ -356,9 +361,24 @@ main {
     height: 3.7rem;
   }
   .side-nav__contents {
-    margin-top: 0.5rem;
+    border: none;
+    margin-top: 2.5rem;
   }
+
+  .hamburger:has(.hamburger-checkbox:checked) + .side-nav {
+    left: 0;
+  }
+
+  main:has(.hamburger-checkbox:checked) {
+    background-color: rgba(0, 0, 0, 0.61);
+  }
+
   .side-nav {
-    gap: 2.5rem;
+    width: 30rem;
+    background-color: white;
+    position: absolute;
+    left: -100%;
+    transition: all 0.2s ease-in-out;
+    z-index: 1;
   }
 }
