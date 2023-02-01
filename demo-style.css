@@ -39,6 +39,7 @@ a {
   background-color: white;
   width: 100%;
   position: fixed;
+  z-index: 1;
 }
 
 /*------------------------------ Logo Design ------------------------------*/
@@ -91,28 +92,83 @@ a {
 
 main {
   display: flex;
-  height: 100%;
-  transition: all 0.2s ease-in-out;
+  height: 120vh;
+  transition: all 0.4s ease-in-out;
+  z-index: 1;
+  /* backdrop-filter: blur(3px); */
 }
 
 /*-------------------------------- Side Nav --------------------------------*/
 
 .hamburger-checkbox {
-  z-index: 100;
+  appearance: none;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+}
+
+.hamburger > label > div,
+.hamburger > label > div::before,
+.hamburger > label > div::after {
+  position: absolute;
+  width: 1.8rem;
+  height: 0.24rem;
+  background-color: #4d96a7;
+  border-radius: 0.24rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.hamburger-checkbox:checked + .hamburger__center-line {
+  background-color: transparent;
+}
+
+.hamburger-checkbox:checked + .hamburger__center-line::before {
+  transform: rotate(45deg) translate(0.4rem, 0.43rem);
+}
+.hamburger-checkbox:checked + .hamburger__center-line::after {
+  transform: rotate(-45deg) translate(0.4rem, -0.43rem);
+}
+
+.hamburger > label > div {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hamburger > label > div::before {
+  content: "";
+  bottom: 0.6rem;
+}
+
+.hamburger > label > div::after {
+  content: "";
+  top: 0.6rem;
 }
 
 .hamburger {
-  z-index: 1;
-  position: absolute;
+  z-index: 100;
+  position: fixed;
+  box-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.226),
+    -0.1rem -0.1rem 0.2rem rgba(0, 0, 0, 0.226);
+  transform: translateX(4rem);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.4rem;
+  top: 0.8rem;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+  display: none;
+}
 
-  transform: translateX(50rem);
-  background-color: black;
+.hamburger:has(.hamburger-checkbox:checked) {
+  transform: translateX(25.5rem) rotate(360deg);
 }
 
 .side-nav {
+  position: fixed;
   display: flex;
   flex-direction: column;
-  width: max-content;
+  width: 20%;
   height: 100vh;
   gap: 5rem;
   z-index: 1;
@@ -148,18 +204,20 @@ main {
 .name-logo-container {
   align-items: center;
   gap: 2rem;
-  cursor: pointer;
+  /* margin-right: 14rem; */
 }
 .user-logo {
   height: 2.2rem;
   width: 2.2rem;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .user-name {
   font-size: 1.6rem;
   color: #005f74;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .user-options-logo {
@@ -167,7 +225,9 @@ main {
   padding-right: 0rem;
   cursor: pointer;
 }
-
+.search {
+  width: 100%;
+}
 .search-button {
   width: 100%;
   height: 3.2rem;
@@ -274,6 +334,7 @@ main {
   border-radius: 0.2rem;
   border: none;
   box-shadow: -0.1rem -0.1rem 0.2rem #98c2cd71, 0.1rem 0.1rem 0.2rem #00698170;
+  cursor: pointer;
 }
 
 .docs-dropdown-button input {
@@ -330,6 +391,50 @@ main {
   object-fit: cover;
 }
 
+.notes-section {
+  position: absolute;
+  right: 0;
+  top: 7rem;
+  width: 80%;
+}
+
+.footer-nav {
+  background-color: white;
+  box-shadow: 0 -0.1rem 0.3rem #0020275b;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  height: 5.5rem;
+  padding: 1rem;
+  gap: 1rem;
+  display: none;
+}
+
+.footer-nav .search,
+.footer-nav .primary-button {
+  height: 100%;
+  flex-grow: 1;
+  z-index: inherit;
+  border-radius: 0.4rem;
+}
+
+.footer-nav .search svg {
+  color: #928a8a;
+}
+
+.footer-nav .search .search-button {
+  height: 100%;
+  border: 1px solid #4d96a7;
+}
+
+/**************************** Media Queries ****************************/
+
+@media only screen and (min-width: 1001px) and (max-width: 1235px) {
+  .side-nav {
+    width: 25%;
+  }
+}
 @media only screen and (max-width: 1000px) {
   .header {
     height: 4.5rem;
@@ -362,23 +467,101 @@ main {
   }
   .side-nav__contents {
     border: none;
-    margin-top: 2.5rem;
+    margin-top: 4.5rem;
   }
 
+  .hamburger {
+    display: block;
+  }
   .hamburger:has(.hamburger-checkbox:checked) + .side-nav {
     left: 0;
   }
-
   main:has(.hamburger-checkbox:checked) {
-    background-color: rgba(0, 0, 0, 0.61);
+    background-color: rgba(0, 0, 0, 0.747);
+    /* position: fixed; */
+  }
+  main:has(.hamburger-checkbox:checked) > .footer-nav {
+    z-index: -1;
+  }
+  main:has(.hamburger-checkbox:checked) > .notes-section {
+    z-index: -2;
+    height: 100%;
+    overflow: hidden;
+  }
+  .footer-nav .primary-button {
+    justify-content: center;
+  }
+  .primary-button > svg,
+  .footer-nav .search .search-button > svg {
+    height: 1.5rem;
+    width: 1.5rem;
   }
 
   .side-nav {
     width: 30rem;
     background-color: white;
-    position: absolute;
+    position: fixed;
     left: -100%;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.4s ease-in-out;
     z-index: 1;
+    box-shadow: 0.1rem 0 0.3rem #005f7448;
+  }
+  .notes-section {
+    top: 5rem;
+    width: 100%;
+  }
+  .footer-nav {
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .footer-nav .primary-button > p,
+  .footer-nav .search .search-button > p {
+    font-size: 1.2rem;
+  }
+
+  .primary-button > svg,
+  .footer-nav .search .search-button > svg {
+    height: 1.3rem;
+    width: 1.3rem;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .primary-button > svg,
+  .footer-nav .search .search-button > svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    color: black;
+  }
+
+  .footer-nav .search .search-button > p,
+  .footer-nav .primary-button > p {
+    display: none;
+  }
+  .footer-nav .search .search-button,
+  .footer-nav .primary-button {
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+  }
+
+  .logo-text {
+    display: none;
+  }
+  .logo-container {
+    align-items: center;
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .hamburger:has(.hamburger-checkbox:checked) {
+    left: 90%;
+    transform: rotate(360deg);
+  }
+  .side-nav {
+    width: 100%;
   }
 }
