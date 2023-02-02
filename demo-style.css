@@ -92,7 +92,7 @@ a {
 
 main {
   display: flex;
-  height: 120vh;
+  height: 100vh;
   transition: all 0.4s ease-in-out;
   z-index: 1;
   /* backdrop-filter: blur(3px); */
@@ -146,6 +146,7 @@ main {
 }
 
 .hamburger {
+  left: 0;
   z-index: 100;
   position: fixed;
   box-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.226),
@@ -319,10 +320,10 @@ main {
 }
 
 .docs-dropdown-section {
-  max-height: 20vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  flex-shrink: 1;
+  /* flex-shrink: 0; */
 }
 
 .docs-dropdown-button {
@@ -352,15 +353,23 @@ main {
   color: #00758e;
 }
 
+.draft-finished-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1.5rem;
+  /* flex-grow: 1; */
+  flex-shrink: 1;
+  /* overflow-x: hidden; */
+  height: 100%;
+}
+
 .docs {
   /* min-height: auto; */
-  height: 100%;
+  flex-basis: 9rem;
   flex-direction: column;
-  /* flex-basis: 10rem; */
-
-  flex-shrink: 2;
-  overflow-y: auto;
-  overflow-x: hidden;
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
 .docs--links {
@@ -396,6 +405,90 @@ main {
   right: 0;
   top: 7rem;
   width: 80%;
+  padding: 0 1rem 10rem;
+}
+
+.notes-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0rem;
+}
+
+.notes-header--title {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #00262f;
+}
+
+.notes-header--icon {
+  cursor: pointer;
+}
+
+.note {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  grid-template-rows: min-content min-content;
+  font-size: 2rem;
+  color: #00262f;
+}
+
+.note--bullet {
+  position: relative;
+}
+
+.note--bullet::after {
+  content: "";
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #001f27;
+  top: 1.8rem;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.note--content {
+  padding: 0.5rem 0.5rem;
+}
+.note--bullet-line {
+  position: relative;
+}
+
+.note--bullet-line::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 0.1rem;
+  background-color: #d9d9d9;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.list-card.note--bullet-line::after {
+  background-color: #001f27;
+}
+
+.image-card img {
+  width: 100%;
+  height: auto;
+  max-width: 65rem;
+  object-fit: contain;
+}
+
+.note--content.large-heading {
+  font-size: 2.8rem;
+  font-weight: 500;
+}
+
+.note--content.medium-heading {
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+
+.note--content.small-heading {
+  font-size: 2.2rem;
+  font-weight: 500;
 }
 
 .footer-nav {
@@ -433,6 +526,9 @@ main {
 @media only screen and (min-width: 1001px) and (max-width: 1235px) {
   .side-nav {
     width: 25%;
+  }
+  .notes-section {
+    width: 75%;
   }
 }
 @media only screen and (max-width: 1000px) {
@@ -558,8 +654,7 @@ main {
 
 @media only screen and (max-width: 500px) {
   .hamburger:has(.hamburger-checkbox:checked) {
-    left: 90%;
-    transform: rotate(360deg);
+    transform: translateX(calc(100vw - 5rem)) rotate(360deg);
   }
   .side-nav {
     width: 100%;
