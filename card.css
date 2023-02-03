@@ -139,3 +139,39 @@ a {
   font-size: 2.4rem;
   font-weight: 600;
 }
+.performance-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  height: 8rem;
+}
+.user-performance {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0.1rem 0.1rem 0.3rem rgba(0, 0, 0, 0.247),
+    -0.1rem -0.1rem 0.4rem rgba(133, 133, 133, 0.199);
+  border-radius: 1rem;
+}
+
+.user-performance p {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #00262f;
+}
+iconify-icon {
+  margin: 0 auto;
+  font-size: 2rem;
+}
+
+.user-performance .time-till-next-test {
+  color: #586163;
+  font-size: 1.4rem;
+  font-weight: 300;
+  background-color: #efefef;
+}

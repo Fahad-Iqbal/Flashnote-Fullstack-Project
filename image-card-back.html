@@ -42,6 +42,7 @@
       <div class="card-header">
         <p><span class="number-of-flashcards">22</span> Flash Cards in</p>
         <select name="subjects" id="subjects">
+          <option value="All">All</option>
           <option value="Chemistry">Chemistry</option>
           <option value="Spanish 101">Spanish 101</option>
           <option selected value="General Biology">General Biology</option>
@@ -78,14 +79,30 @@
         </div>
       </div>
       <div class="card-footer">
-        <a href="#" class="show-answer">
-          <iconify-icon icon="twemoji:anxious-face-with-sweat"></iconify-icon>
-          <iconify-icon icon="twemoji:grimacing-face"></iconify-icon>
-          <iconify-icon icon="twemoji:neutral-face"></iconify-icon>
-          <iconify-icon
-            icon="twemoji:beaming-face-with-smiling-eyes"
-          ></iconify-icon>
-        </a>
+        <div class="performance-section">
+          <a href="#" class="user-performance">
+            <iconify-icon icon="twemoji:anxious-face-with-sweat"></iconify-icon>
+            <p>Forgot</p>
+            <p><span class="time-till-next-test">1 min</span></p>
+          </a>
+          <a href="#" class="user-performance">
+            <iconify-icon icon="twemoji:grimacing-face"></iconify-icon>
+            <p>Partially recalled</p>
+            <p><span class="time-till-next-test">10 min</span></p>
+          </a>
+          <a href="#" class="user-performance">
+            <iconify-icon icon="twemoji:anxious-face-with-sweat"></iconify-icon>
+            <p>Recalled with effort</p>
+            <p><span class="time-till-next-test">30 min</span></p>
+          </a>
+          <a href="#" class="user-performance">
+            <iconify-icon
+              icon="twemoji:beaming-face-with-smiling-eyes"
+            ></iconify-icon>
+            <p>Recalled easily</p>
+            <p><span class="time-till-next-test">1 hour</span></p>
+          </a>
+        </div>
       </div>
     </div>
   </body>
