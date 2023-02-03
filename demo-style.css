@@ -104,6 +104,7 @@ main {
   background-color: transparent;
   width: 100%;
   height: 100%;
+  cursor: pointer;
 }
 
 .hamburger > label > div,
@@ -114,6 +115,7 @@ main {
   height: 0.24rem;
   background-color: #4d96a7;
   border-radius: 0.24rem;
+  cursor: pointer;
   transition: all 0.5s ease-in-out;
 }
 
@@ -150,13 +152,12 @@ main {
   position: fixed;
   box-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.226),
     -0.1rem -0.1rem 0.2rem rgba(0, 0, 0, 0.226);
-  transform: translateX(4rem);
+  transform: translateX(4rem) rotate(0deg);
   width: 3rem;
   height: 3rem;
   border-radius: 0.4rem;
   top: 0.8rem;
   transition: all 0.5s ease-in-out;
-  cursor: pointer;
   display: none;
 }
 
@@ -491,6 +492,12 @@ main {
   height: auto;
   max-width: 65rem;
   object-fit: contain;
+}
+
+.cloze {
+  color: #0989a6;
+  text-decoration: underline;
+  background-color: #c6cbe8;
 }
 
 .note--content.large-heading {
