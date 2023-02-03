@@ -150,6 +150,7 @@ a {
 .user-performance {
   display: flex;
   flex-direction: column;
+  gap: 0.4rem;
   justify-content: center;
   text-align: center;
   width: 100%;
