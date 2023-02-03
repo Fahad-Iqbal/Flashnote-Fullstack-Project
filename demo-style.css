@@ -389,6 +389,10 @@ main {
   font-size: 1.4rem;
 }
 
+.selected {
+  background-color: #b3d2d9;
+}
+
 .create {
   justify-content: center;
 }
@@ -444,6 +448,18 @@ main {
   top: 1.8rem;
   left: 50%;
   transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.note--bullet:has(+ .note--content.large-heading)::after {
+  top: 2.3rem;
+}
+
+.note--bullet:has(+ .note--content.medium-heading)::after {
+  top: 2rem;
+}
+
+.note--bullet:has(+ .note--content.small-heading)::after {
+  top: 1.9rem;
 }
 
 .note--content {
