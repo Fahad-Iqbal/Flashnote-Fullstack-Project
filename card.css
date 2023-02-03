@@ -160,6 +160,14 @@ a {
   border-radius: 1rem;
 }
 
+.user-performance:first-child {
+  border-bottom-left-radius: 1.5rem;
+}
+
+.user-performance:last-child {
+  border-bottom-right-radius: 1.5rem;
+}
+
 .user-performance p {
   font-size: 1.6rem;
   font-weight: 400;
