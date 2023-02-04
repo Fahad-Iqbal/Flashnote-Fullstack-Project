@@ -86,7 +86,7 @@ a {
   grid-template-columns: 2rem 1fr;
   grid-template-rows: min-content min-content;
   font-size: 2rem;
-  color: #00262f;
+  color: rgb(0, 38, 47);
 }
 
 .note--bullet {
@@ -109,9 +109,11 @@ a {
 }
 
 .question {
+  color: #001f27;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 50vh;
 }
 
 .question .image-card {
@@ -125,6 +127,27 @@ a {
 .question .image-card img {
   display: block;
   width: 100%;
+}
+
+.question .basic-card p,
+.cloze-card-question p,
+.cloze-card-answer p {
+  color: #001f27;
+  margin: 2rem;
+  padding: 1.6rem 3.2rem;
+  font-size: 3rem;
+  box-shadow: 0.1rem 0.1rem 1rem #001f2748;
+  border-radius: 1rem;
+}
+
+.question .cloze-card-question span {
+  border-bottom: 0.3rem solid #001f27;
+  color: white;
+}
+
+.question .cloze-card-answer span {
+  border-bottom: 0.3rem solid #001f27;
+  color: #001f27;
 }
 
 .show-answer {

@@ -12,8 +12,8 @@
       href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <script src="https://code.iconify.design/iconify-icon/1.0.3/iconify-icon.min.js"></script>
-    <title>Image-Card Back</title>
+
+    <title>Image-card Front</title>
 
     <!-- favicon -->
     <link
@@ -40,7 +40,7 @@
 
     <div class="card">
       <div class="card-header">
-        <p><span class="number-of-flashcards">22</span> Flash Cards in</p>
+        <p><span class="number-of-flashcards">21</span> Flash Cards in</p>
         <select name="subjects" id="subjects">
           <option value="All">All</option>
           <option value="Chemistry">Chemistry</option>
@@ -61,7 +61,7 @@
               <div class="note">
                 <div class="note--bullet"></div>
                 <div class="note--content medium-heading">
-                  Section 2: Cell Theory
+                  Section 1: Basic Cell Biology
                 </div>
                 <div class="note--bullet-line"></div>
                 <div class="note--subnote"></div>
@@ -70,39 +70,16 @@
           </div>
         </div>
         <div class="question">
-          <div class="note--content image-card">
-            <img
-              src="https://res.cloudinary.com/drbpsxnln/image/upload/v1675394573/Frame_21_tcgvym.png"
-              alt="cell image"
-            />
+          <div class="note--content cloze-card-question">
+            <p>
+              The genetic material of archaea and bacteria is located in the
+              <span>nucleoid</span>
+            </p>
           </div>
         </div>
       </div>
       <div class="card-footer">
-        <div class="performance-section">
-          <a href="/basic-card-front.html" class="user-performance">
-            <iconify-icon icon="twemoji:anxious-face-with-sweat"></iconify-icon>
-            <p>Forgot</p>
-            <p><span class="time-till-next-test">1 min</span></p>
-          </a>
-          <a href="/basic-card-front.html" class="user-performance">
-            <iconify-icon icon="twemoji:grimacing-face"></iconify-icon>
-            <p>Partially recalled</p>
-            <p><span class="time-till-next-test">10 min</span></p>
-          </a>
-          <a href="/basic-card-front.html" class="user-performance">
-            <iconify-icon icon="twemoji:neutral-face"></iconify-icon>
-            <p>Recalled with effort</p>
-            <p><span class="time-till-next-test">30 min</span></p>
-          </a>
-          <a href="/basic-card-front.html" class="user-performance">
-            <iconify-icon
-              icon="twemoji:beaming-face-with-smiling-eyes"
-            ></iconify-icon>
-            <p>Recalled easily</p>
-            <p><span class="time-till-next-test">1 hour</span></p>
-          </a>
-        </div>
+        <a href="/cloze-card-back.html" class="show-answer">Show Answer</a>
       </div>
     </div>
   </body>
