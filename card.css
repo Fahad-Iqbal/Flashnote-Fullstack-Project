@@ -131,7 +131,8 @@ a {
 
 .question .basic-card p,
 .cloze-card-question p,
-.cloze-card-answer p {
+.cloze-card-answer p,
+.question .note--content.list-card {
   color: #001f27;
   margin: 2rem;
   padding: 1.6rem 3.2rem;
@@ -140,14 +141,22 @@ a {
   border-radius: 1rem;
 }
 
+.question .note--content.list-card p {
+  font-size: 3rem;
+}
+
 .question .cloze-card-question span {
+  display: inline-block;
   border-bottom: 0.3rem solid #001f27;
-  color: white;
+  color: transparent;
+  line-height: 0.9;
 }
 
 .question .cloze-card-answer span {
+  display: inline-block;
   border-bottom: 0.3rem solid #001f27;
   color: #001f27;
+  line-height: 0.9;
 }
 
 .show-answer {
@@ -206,4 +215,70 @@ iconify-icon {
   font-size: 1.4rem;
   font-weight: 300;
   background-color: #efefef;
+}
+
+@media only screen and (max-width: 1000px) {
+  .go-back svg {
+    height: 4rem;
+  }
+  .card {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .user-performance p:nth-child(2) {
+    display: none;
+  }
+  .context .note--content {
+    font-size: 1.5rem;
+  }
+
+  .context .note--bullet::after {
+    content: "";
+    position: absolute;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #001f27;
+    top: 1.5rem;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  .note--content.image-card,
+  .note--content.basic-card,
+  .note--content.list-card,
+  .note--content.cloze-card-question,
+  .note--content.cloze-card-answer {
+    width: 100%;
+  }
+
+  .show-answer {
+    font-size: 2rem;
+    height: 7rem;
+  }
+
+  .question .basic-card p,
+  .cloze-card-question p,
+  .cloze-card-answer p,
+  .question .note--content.list-card p {
+    font-size: 2rem;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .card-header p {
+    font-size: 1.6rem;
+  }
+
+  .card-header {
+    gap: 0.5rem;
+  }
+  .card select {
+    height: 2.2rem;
+    font-size: 1.5rem;
+  }
+  select option {
+    height: 1.5rem;
+  }
 }
