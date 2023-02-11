@@ -40,7 +40,7 @@ a {
   z-index: 1;
 }
 
-/**------------------------------ Logo Design ------------------------------*/
+/**------------------------------ Logo  ------------------------------*/
 .logo-container {
   font-family: "DM Serif Display", serif;
   display: flex;
@@ -73,7 +73,7 @@ a {
   color: #720000;
 }
 
-/*----------------------------- Log out button -----------------------------*/
+/**----------------------------- Log out button -----------------------------*/
 .log-out {
   height: 60%;
   border: 0.2rem solid #00758e;
@@ -95,14 +95,27 @@ main {
   /* backdrop-filter: blur(3px); */
 }
 
-/*-------------------------------- Side Nav --------------------------------*/
+/**-------------------------------- Side Nav + Hamburger--------------------------------*/
 
-.hamburger-checkbox {
-  appearance: none;
-  background-color: transparent;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
+/* Hamburger Menu */
+
+.hamburger {
+  left: 0;
+  z-index: 100;
+  position: fixed;
+  box-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.226),
+    -0.1rem -0.1rem 0.2rem rgba(0, 0, 0, 0.226);
+  transform: translateX(4rem) rotate(0deg);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.4rem;
+  top: 0.8rem;
+  transition: all 0.5s ease-in-out;
+  display: none;
+}
+
+.hamburger:has(.hamburger-checkbox:checked) {
+  transform: translateX(25.5rem) rotate(360deg);
 }
 
 .hamburger > label > div,
@@ -121,9 +134,18 @@ main {
   background-color: transparent;
 }
 
+.hamburger-checkbox {
+  appearance: none;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
 .hamburger-checkbox:checked + .hamburger__center-line::before {
   transform: rotate(45deg) translate(0.4rem, 0.43rem);
 }
+
 .hamburger-checkbox:checked + .hamburger__center-line::after {
   transform: rotate(-45deg) translate(0.4rem, -0.43rem);
 }
@@ -144,24 +166,7 @@ main {
   top: 0.6rem;
 }
 
-.hamburger {
-  left: 0;
-  z-index: 100;
-  position: fixed;
-  box-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.226),
-    -0.1rem -0.1rem 0.2rem rgba(0, 0, 0, 0.226);
-  transform: translateX(4rem) rotate(0deg);
-  width: 3rem;
-  height: 3rem;
-  border-radius: 0.4rem;
-  top: 0.8rem;
-  transition: all 0.5s ease-in-out;
-  display: none;
-}
-
-.hamburger:has(.hamburger-checkbox:checked) {
-  transform: translateX(25.5rem) rotate(360deg);
-}
+/* Side Nav */
 
 .side-nav {
   position: fixed;
@@ -188,10 +193,6 @@ main {
   flex-direction: column;
   gap: 4rem;
   flex-grow: 0;
-  /* justify-content: space-between; */
-  /* height: 80vh; */
-  /* align-items: center; */
-  /* overflow-y: auto; */
 }
 
 /* ----------------- User Section ------------------------ */
@@ -200,10 +201,9 @@ main {
   justify-content: space-between;
 }
 
-.name-logo-container {
+.user-name__user-icon__container {
   align-items: center;
   gap: 2rem;
-  /* margin-right: 14rem; */
 }
 .user-icon {
   height: 2.2rem;
@@ -224,9 +224,13 @@ main {
   padding-right: 0rem;
   cursor: pointer;
 }
+
+/* Search */
+
 .search {
   width: 100%;
 }
+
 .search-button {
   width: 100%;
   height: 3.2rem;
@@ -261,10 +265,13 @@ main {
   justify-content: start;
   cursor: pointer;
 }
+
+/* Styling for primary buttons : Practice Flashcards and Create */
+
 .primary-button img {
   width: 1.4rem;
-  /* object-fit: cover; */
 }
+
 .primary-button span {
   text-decoration: underline;
 }
@@ -272,7 +279,7 @@ main {
 .side-nav__contents,
 .side-nav__contents--top,
 .user,
-.name-logo-container,
+.user-name__user-icon__container,
 .search-button,
 .primary-button,
 .secondary-button,
@@ -283,6 +290,8 @@ main {
   display: flex;
   width: 100%;
 }
+
+/* Secondary Button Styling: All Documents */
 
 .secondary-button {
   align-items: center;
@@ -305,6 +314,8 @@ main {
   font-weight: 500;
 }
 
+/* Draft, Finished Styling */
+
 .docs-dropdown-section:has(input:not(checked)) > .docs {
   display: none;
 }
@@ -321,7 +332,6 @@ main {
   height: 100%;
   display: flex;
   flex-direction: column;
-  /* flex-shrink: 0; */
 }
 
 .docs-dropdown-button {
@@ -356,14 +366,11 @@ main {
   flex-direction: column;
   width: 100%;
   gap: 1.5rem;
-  /* flex-grow: 1; */
   flex-shrink: 1;
-  /* overflow-x: hidden; */
   height: 100%;
 }
 
 .docs {
-  /* min-height: auto; */
   flex-basis: 9rem;
   flex-direction: column;
   flex-grow: 1;
@@ -392,6 +399,8 @@ main {
   background-color: #b3d2d9;
 }
 
+/* Create Button Styling in SideNav */
+
 .create {
   justify-content: center;
 }
@@ -401,6 +410,8 @@ main {
   width: auto;
   object-fit: cover;
 }
+
+/**************************** Notes Section Styling ****************************/
 
 .notes-section {
   position: absolute;
@@ -515,10 +526,13 @@ main {
 
 .arrow {
   font-size: 2rem;
+  font-weight: bolder;
   color: #00758e;
-  /* background-image: linear-gradient(180deg, #00758e, #00758e); */
   background-clip: content-box;
+  text-shadow: 0.1rem 0.1rem 0.2rem #00758f5b;
 }
+
+/*************************** Bottom Nav Bar ***************************/
 
 .footer-nav {
   background-color: white;
@@ -605,19 +619,22 @@ main {
     transition: all 0.4s ease-in-out;
 
     background-color: rgba(0, 0, 0, 0.747);
-    /* position: fixed; */
   }
+
   main:has(.hamburger-checkbox:checked) > .footer-nav {
     z-index: -1;
   }
+
   main:has(.hamburger-checkbox:checked) > .notes-section {
     z-index: -2;
     height: 100%;
     overflow: hidden;
   }
+
   .footer-nav .primary-button {
     justify-content: center;
   }
+
   .primary-button > svg,
   .footer-nav .search .search-button > svg {
     height: 1.5rem;
@@ -633,10 +650,12 @@ main {
     z-index: 1;
     box-shadow: 0.1rem 0 0.3rem #005f7448;
   }
+
   .notes-section {
     top: 5rem;
     width: 100%;
   }
+
   .footer-nav {
     display: flex;
   }
