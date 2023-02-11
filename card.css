@@ -86,7 +86,7 @@ a {
   grid-template-columns: 2rem 1fr;
   grid-template-rows: min-content min-content;
   font-size: 2rem;
-  color: rgb(0, 38, 47);
+  color: #00262f;
 }
 
 .note--bullet {
