@@ -532,6 +532,11 @@ main {
   text-shadow: 0.1rem 0.1rem 0.2rem #00758f5b;
 }
 
+::selection {
+  background-color: #0989a6;
+  color: white;
+}
+
 /*************************** Bottom Nav Bar ***************************/
 
 .footer-nav {
