@@ -11,9 +11,35 @@ html {
   font-size: 62.5%;
 }
 
+html {
+  --color-background: white;
+  --color-header-box-shadow: #001f2785;
+  --color-bullet: #001f27;
+  --color-hamburger-lines: #4d96a7;
+  --color-arrow: #00758e;
+  --color-hamburger-shadow: rgba(0, 0, 0, 0.226);
+  --color-sidenav-right-border: #cce1e6;
+  --user-name-text: #005f74;
+  --search-button-background: #f2f2f2;
+  --search-button-text: #6b6f70;
+  --primary-button-text: #f2f2f2;
+  --primary-button-background: #006981;
+  --secondary-button-shadow-top: #98c2cd71;
+  --secondary-button-shadow-bottom: #00698170;
+  --docs-links-text: #58696c;
+  --docs-selected-background: #b3d2d9;
+  --note-text-color: #00262f;
+  --footer-box-shadow: #0020275b;
+  --bullet-line: #d9d9d9;
+  --cloze-text: #0989a6;
+  --cloze-background: #c6cbe8;
+  --mobile-footer-icons: black;
+}
+
 body {
   font-family: "Inter", sans-serif;
   height: 100vh;
+  color: var(--color-background);
 }
 
 button {
@@ -33,8 +59,8 @@ a {
   display: flex;
   padding: 0.5rem 2rem 2rem;
   justify-content: space-between;
-  box-shadow: 0 0.1rem 0.8rem 0 #001f2785;
-  background-color: white;
+  box-shadow: 0 0.1rem 0.8rem 0 var(--color-header-box-shadow);
+  background-color: var(--color-background);
   width: 100%;
   position: fixed;
   z-index: 1;
@@ -76,9 +102,9 @@ a {
 /**----------------------------- Log out button -----------------------------*/
 .log-out {
   height: 60%;
-  border: 0.2rem solid #00758e;
+  border: 0.2rem solid var(--color-arrow);
   border-radius: 0.8rem;
-  color: #00758e;
+  color: var(--color-arrow);
   font-size: 1.6rem;
   font-weight: 500;
   background-color: transparent;
@@ -103,8 +129,8 @@ main {
   left: 0;
   z-index: 100;
   position: fixed;
-  box-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.226),
-    -0.1rem -0.1rem 0.2rem rgba(0, 0, 0, 0.226);
+  box-shadow: 0.1rem 0.1rem 0.2rem var(--color-hamburger-shadow),
+    -0.1rem -0.1rem 0.2rem var(--color-hamburger-shadow);
   transform: translateX(4rem) rotate(0deg);
   width: 3rem;
   height: 3rem;
@@ -124,7 +150,7 @@ main {
   position: absolute;
   width: 1.8rem;
   height: 0.24rem;
-  background-color: #4d96a7;
+  background-color: var(--color-hamburger-lines);
   border-radius: 0.24rem;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
@@ -184,7 +210,7 @@ main {
   margin-top: 6.5rem;
   flex-direction: column;
   justify-content: space-between;
-  border-right: 2px solid #cce1e6;
+  border-right: 2px solid var(--color-sidenav-right-border);
   padding: 2rem;
   flex-grow: 0;
 }
@@ -214,7 +240,7 @@ main {
 
 .user-name {
   font-size: 1.6rem;
-  color: #005f74;
+  color: var(--user-name-text);
   font-weight: 700;
   cursor: pointer;
 }
@@ -237,12 +263,12 @@ main {
   padding: 0rem 1.2rem;
   border: none;
   align-items: center;
-  background-color: #f2f2f2;
+  background-color: var(--search-button-background);
   gap: 1rem;
 }
 
 .search-button p {
-  color: #6b6f70;
+  color: var(--search-button-text);
   font-weight: 400;
 }
 
@@ -254,10 +280,10 @@ main {
 
 .primary-button {
   border: none;
-  background-color: #006981;
+  background-color: var(--primary-button-background);
   align-items: center;
   gap: 1rem;
-  color: #f2f2f2;
+  color: var(--primary-button-text);
   padding: 1rem 1.6rem;
   border-radius: 0.2rem;
   font-size: 1.6rem;
@@ -297,10 +323,11 @@ main {
   align-items: center;
   padding: 0.8rem 1.6rem;
   gap: 1rem;
-  background-color: #fff;
+  background-color: var(--color-background);
   border-radius: 0.2rem;
   border: none;
-  box-shadow: -0.1rem -0.1rem 0.2rem #98c2cd71, 0.1rem 0.1rem 0.2rem #00698170;
+  box-shadow: -0.1rem -0.1rem 0.2rem var(--secondary-button-shadow-top),
+    0.1rem 0.1rem 0.2rem var(--secondary-button-shadow-bottom);
   cursor: pointer;
 }
 
@@ -309,7 +336,7 @@ main {
 }
 
 .secondary-button p {
-  color: #00758e;
+  color: var(--color-arrow);
   font-size: 1.6rem;
   font-weight: 500;
 }
@@ -326,6 +353,7 @@ main {
 
 .docs-dropdown-button:has(input:checked) > img {
   transform: rotate(90deg);
+  transition: all 0.3s ease-in-out;
 }
 
 .docs-dropdown-section {
@@ -342,7 +370,8 @@ main {
   background-color: #fff;
   border-radius: 0.2rem;
   border: none;
-  box-shadow: -0.1rem -0.1rem 0.2rem #98c2cd71, 0.1rem 0.1rem 0.2rem #00698170;
+  box-shadow: -0.1rem -0.1rem 0.2rem var(--secondary-button-shadow-top),
+    0.1rem 0.1rem 0.2rem var(--secondary-button-shadow-bottom);
   cursor: pointer;
 }
 
@@ -358,7 +387,7 @@ main {
 .docs-dropdown-button p {
   font-size: 1.6rem;
   font-weight: 500;
-  color: #00758e;
+  color: var(--color-arrow);
 }
 
 .draft-finished-container {
@@ -390,13 +419,13 @@ main {
 }
 
 .docs--links p {
-  color: #58696c;
+  color: var(--docs-links-text);
   font-weight: 600;
   font-size: 1.4rem;
 }
 
 .selected {
-  background-color: #b3d2d9;
+  background-color: var(--docs-selected-background);
 }
 
 /* Create Button Styling in SideNav */
@@ -419,6 +448,7 @@ main {
   top: 7rem;
   width: 80%;
   padding: 0 1rem 10rem;
+  background-color: var(--color-background);
 }
 
 .notes-header {
@@ -430,7 +460,7 @@ main {
 .notes-header--title {
   font-size: 3rem;
   font-weight: 600;
-  color: #00262f;
+  color: var(--note-text-color);
 }
 
 .notes-header--icon {
@@ -442,7 +472,7 @@ main {
   grid-template-columns: 2rem 1fr;
   grid-template-rows: min-content min-content;
   font-size: 2rem;
-  color: #00262f;
+  color: var(--note-text-color);
 }
 
 .note--bullet {
@@ -454,7 +484,7 @@ main {
   position: absolute;
   width: 0.5rem;
   height: 0.5rem;
-  background-color: #001f27;
+  background-color: var(--color-bullet);
   top: 1.8rem;
   left: 50%;
   transform: translate(-50%, -50%) rotate(45deg);
@@ -485,14 +515,14 @@ main {
   position: absolute;
   height: 100%;
   width: 0.1rem;
-  background-color: #d9d9d9;
+  background-color: var(--bullet-line);
   top: 0;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .list-card.note--bullet-line::after {
-  background-color: #001f27;
+  background-color: var(--color-bullet);
 }
 
 .image-card img {
@@ -504,9 +534,9 @@ main {
 }
 
 .cloze {
-  color: #0989a6;
+  color: var(--cloze-text);
   text-decoration: underline;
-  background-color: #c6cbe8;
+  background-color: var(--cloze-background);
 }
 
 .note--content.large-heading {
@@ -527,7 +557,7 @@ main {
 .arrow {
   font-size: 2rem;
   font-weight: bolder;
-  color: #00758e;
+  color: var(--color-arrow);
   background-clip: content-box;
   text-shadow: 0.1rem 0.1rem 0.2rem #00758f5b;
 }
@@ -540,8 +570,8 @@ main {
 /*************************** Bottom Nav Bar ***************************/
 
 .footer-nav {
-  background-color: white;
-  box-shadow: 0 -0.1rem 0.3rem #0020275b;
+  background-color: var(--color-background);
+  box-shadow: 0 -0.1rem 0.3rem var(--footer-box-shadow);
   position: fixed;
   bottom: 0;
   display: flex;
@@ -561,12 +591,12 @@ main {
 }
 
 .footer-nav .search svg {
-  color: #928a8a;
+  color: var(--search-button-text);
 }
 
 .footer-nav .search .search-button {
   height: 100%;
-  border: 1px solid #4d96a7;
+  border: 1px solid var(--color-hamburger-lines);
 }
 
 /**************************** Media Queries ****************************/
@@ -648,7 +678,7 @@ main {
 
   .side-nav {
     width: 30rem;
-    background-color: white;
+    background-color: var(--color-background);
     position: fixed;
     left: -100%;
     transition: all 0.4s ease-in-out;
@@ -684,7 +714,7 @@ main {
   .footer-nav .search .search-button > svg {
     height: 1.5rem;
     width: 1.5rem;
-    color: black;
+    color: var(--mobile-footer-icons);
   }
 
   .footer-nav .search .search-button > p,
