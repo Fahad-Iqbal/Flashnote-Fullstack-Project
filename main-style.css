@@ -9,6 +9,7 @@
 html {
   /* 1rem = 10px for all elements*/
   font-size: 62.5%;
+  transition: all 0.5s ease;
 }
 
 html:not(:has(.darkmode input:checked)) {
@@ -147,6 +148,7 @@ main {
   height: 100vh;
   z-index: 1;
   background-color: var(--color-background);
+  transition: all 0.5s ease;
 }
 
 /**-------------------------------- Side Nav + Hamburger--------------------------------*/
@@ -384,7 +386,7 @@ main {
 
 .docs-dropdown-button:has(input:checked) > img {
   transform: rotate(90deg);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 
 .docs-dropdown-section {
@@ -413,6 +415,7 @@ main {
 
 .docs-dropdown-button img {
   width: 0.8rem;
+  transition: all 0.1s ease-in-out;
 }
 
 .docs-dropdown-button p {
