@@ -1,5 +1,5 @@
 # FlashNote-csfs1000
- Flashnote is a note-taking app with flashcard functionality. It makes the learning of memory intensive subjects easier. Users of the app can make notes and then test themselves on certain notes that they have turned into flash cards. 
+ Flashnote is a note-taking app with flashcard functionality. It makes the learning of memory intensive subjects easier. Users of the app can make notes and then test themselves on certain notes that they have turned into flash cards. If the user recalls a flashcard easily and repeatedly, then that flashcard is shown again after a larger time interval. If the user can't recall the flashcard, then it is shown again very quickly until the user begins to reliably recall that card.  
 
 ## User Stories
 
