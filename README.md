@@ -1,5 +1,8 @@
 # FlashNote-csfs1000
- Flashnote is a note-taking app with flashcard functionality. It makes the learning of memory intensive subjects easier. Users of the app can make notes and then test themselves on certain notes that they have turned into flash cards. If the user recalls a flashcard easily and repeatedly, then that flashcard is shown again after a larger time interval. If the user can't recall the flashcard, then it is shown again very quickly until the user begins to reliably recall that card.  
+ Flashnote is a note-taking app with flashcard functionality. It makes the learning of memory intensive subjects easier. Users of the app can make notes and then test themselves on certain notes that they have turned into flash cards. If the user recalls a flashcard easily and repeatedly, then that flashcard is shown again after a longer time interval. If the user can't recall the flashcard, then it is shown again very quickly until the user begins to reliably recall that card. 
+ 
+ The user can simply take notes or they can generate different styles of flash cards as shown in the [funtionality](https://github.com/Fahad-Iqbal/flashnote-csfs1000/edit/main/README.md#functionality) section. The user can freely share their notes with anyone or they can allow access to a select group of users. 
+ 
 
 ## User Stories
 
@@ -25,10 +28,12 @@ Apart from just taking notes, a user can:
 - generate standard flashcards with the question on the front and the answer on the back
 - generate reversible flashcards, where either the front or the back of the card can be shown as the question
 - generate [cloze deletion](https://en.wikipedia.org/wiki/Cloze_test) flashcards, which contain 'fill in the blank' style questions
+- generate a link for a document that can be shared with all users
+- generate a flash card with multiple items as an answer. For example, an answer that can be described in steps
 - generate image occulsion flashcards like the example shown below
   - ![image](https://user-images.githubusercontent.com/14140389/215241373-541afb8c-411d-4401-9749-e400723ff5e1.png)
   - ![image](https://user-images.githubusercontent.com/14140389/215241394-6bf81b9f-9dea-4fdf-ab62-ea5dcb083174.png)
-- generate a link for a document that can be shared with all users
+
 
 An admin can:
 - do everything a user can
