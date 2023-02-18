@@ -228,7 +228,7 @@ main {
   position: fixed;
   display: flex;
   flex-direction: column;
-  width: 20%;
+  width: 22%;
   height: 100vh;
   gap: 5rem;
   z-index: 1;
@@ -510,7 +510,7 @@ main {
   position: absolute;
   right: 0;
   top: 7rem;
-  width: 80%;
+  width: 78%;
   padding: 0 1rem 10rem;
   background-color: var(--color-background);
   transition: all 0.5s ease;
@@ -627,6 +627,7 @@ main {
   text-shadow: 0.1rem 0.1rem 0.2rem #00758f5b;
 }
 
+/* Change colour of highlighted text */
 ::selection {
   background-color: #0989a6;
   color: white;
@@ -666,7 +667,7 @@ main {
 
 /**************************** Media Queries ****************************/
 
-@media only screen and (min-width: 1001px) and (max-width: 1235px) {
+@media only screen and (min-width: 1051px) and (max-width: 1235px) {
   .side-nav {
     width: 25%;
   }
@@ -674,6 +675,16 @@ main {
     width: 75%;
   }
 }
+
+@media only screen and (min-width: 1001px) and (max-width: 1050px) {
+  .side-nav {
+    width: 28%;
+  }
+  .notes-section {
+    width: 72%;
+  }
+}
+
 @media only screen and (max-width: 1000px) {
   .header {
     height: 4.5rem;
