@@ -3,6 +3,12 @@
  
  The user can simply take notes or they can generate different styles of flash cards as shown in the [funtionality](https://github.com/Fahad-Iqbal/flashnote-csfs1000/edit/main/README.md#functionality) section. The user can freely share their notes with anyone or they can allow access to a select group of users. 
  
+## Changes from the original figma design
+
+- The logo on the top of the screen was changed to a smaller size
+- The arrows in the notes are different because the original arrows didn't render well on the webpage
+- A dark mode button was added
+
 
 ## User Stories
 
