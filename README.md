@@ -8,6 +8,9 @@
 - The logo on the top of the screen was changed to a smaller size
 - The arrows in the notes are different because the original arrows didn't render well on the webpage
 - A dark mode button was added
+- Extra flashcards were added
+
+The demo page can be seen through the main-page.html file.
 
 
 ## User Stories
