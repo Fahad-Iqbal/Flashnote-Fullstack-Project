@@ -19,6 +19,14 @@ Ask yourself/the client: why do you need a database?
 The purpose of the FlashNote database is to store user generated notes and flashcards and make them available for the user to review and practice. 
 
 ### Mission Objectives
+
+- Create notes as bullet points
+- Review, change, or delete notes
+- Format notes with bolding, italicising, underlining, or highlighting
+- Organize notes with section headings
+- Organize notes by nesting notes
+- Generate flashcards with the information from the note/bullet point that the flashcard is based on
+- Store information on the time interval, after which the flashcard should be practiced again
  
  
 ## User Stories
@@ -48,7 +56,7 @@ Here is the [Figma link](https://www.figma.com/file/qLDlZ9jFJyVfCwlUggwRTH/Flash
 
 FlashNote is a note-taking and flashcard app that makes use of learning techniques such as [active recall](https://en.wikipedia.org/wiki/Testing_effect) and [spaced repetition](https://en.wikipedia.org/wiki/Spaced_repetition).
 
-Apart from just taking notes, a user can:
+Apart from simply taking notes, a user can:
 - generate standard flashcards with the question on the front and the answer on the back
 - generate reversible flashcards, where either the front or the back of the card can be shown as the question
 - generate [cloze deletion](https://en.wikipedia.org/wiki/Cloze_test) flashcards, which contain 'fill in the blank' style questions
