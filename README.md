@@ -1,18 +1,23 @@
-# FlashNote-csfs1000
+# FlashNote
  Flashnote is a note-taking app with flashcard functionality. It makes the learning of memory intensive subjects easier. Users of the app can make notes and then test themselves on certain notes that they have turned into flash cards. If the user recalls a flashcard easily and repeatedly, then that flashcard is shown again after a longer time interval. If the user can't recall the flashcard, then it is shown again very quickly until the user begins to reliably recall that card. 
  
- The user can simply take notes or they can generate different styles of flash cards as shown in the [funtionality](https://github.com/Fahad-Iqbal/flashnote-csfs1000/edit/main/README.md#functionality) section. The user can freely share their notes with anyone or they can allow access to a select group of users. 
+ The user can simply take notes or they can generate different styles of flash cards as shown in the [funtionality](https://github.com/Fahad-Iqbal/Flashnote-Fullstack-Project/edit/main/README.md#functionality) section. The user can freely share their notes with anyone or they can allow access to a select group of users. 
  
-## Changes from the original figma design
+ 
+## Database Design Process
+Mission statement: definition of the specific purpose of the database.
+Well defined, succinct and to the point. No specific tasks.
+e.g. The purpose of the Starting Up Careers database is to gather information
+from companies and job seekers and to make it available to the counterpart so
+that the demand of work can meet with the offer.
+Ask yourself/the client: why do you need a database?
 
-- The logo on the top of the screen was changed to a smaller size
-- The arrows in the notes are different because the original arrows didn't render well on the webpage
-- A dark mode button was added
-- Extra flashcards were added
+### Mission Statement
+The purpose of the FlashNote database is to store user generated notes and flashcards and make them available for the user to review and practice. 
 
-The demo page can be seen through the main-page.html file.
-
-
+### Mission Objectives
+ 
+ 
 ## User Stories
 
 > As a psychology student, I want to be able to make well organized notes, generate flashcards easily, and test myself in one app. 
@@ -28,6 +33,13 @@ The demo page can be seen through the main-page.html file.
 ## Figma Design
 
 Here is the [Figma link](https://www.figma.com/file/qLDlZ9jFJyVfCwlUggwRTH/FlashNote-Project?t=dlnkvsX8MIRRQTuq-1) for the project. It has limited interactivity and the design for each device size is on a separate page.
+
+### Changes from the original figma design
+
+- The logo on the top of the screen was changed to a smaller size
+- The arrows in the notes are different because the original arrows didn't render well on the webpage
+- A dark mode button was added
+- Extra flashcards were added
 
 ## Functionality
 
