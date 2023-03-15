@@ -2,6 +2,9 @@
  Flashnote is a note-taking app with flashcard functionality. It makes the learning of memory intensive subjects easier. Users of the app can make notes and then test themselves on certain notes that they have turned into flash cards. If the user recalls a flashcard easily and repeatedly, then that flashcard is shown again after a longer time interval. If the user can't recall the flashcard, then it is shown again very quickly until the user begins to reliably recall that card. 
  
  The user can simply take notes or they can generate different styles of flash cards as shown in the [funtionality](https://github.com/Fahad-Iqbal/Flashnote-Fullstack-Project/edit/main/README.md#functionality) section. The user can freely share their notes with anyone or they can allow access to a select group of users. 
+
+ The demo page can be viewed [here](https://fahad-iqbal.github.io/Flashnote-Fullstack-Project/main-page.html).
+
  
  
 ## Database Design Process
