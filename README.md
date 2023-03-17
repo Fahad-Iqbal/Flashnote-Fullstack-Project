@@ -24,6 +24,7 @@ The purpose of the FlashNote database is to store user generated notes and flash
 - Review, change, or delete notes
 - Format notes with bolding, italicising, underlining, or highlighting
 - Organize notes with section headings
+- Add hashtags to notes
 - Organize notes by nesting notes
 - Generate flashcards with the information from the note/bullet point that the flashcard is based on
 - Store information on the time interval, after which the flashcard should be practiced again
@@ -34,11 +35,11 @@ The purpose of the FlashNote database is to store user generated notes and flash
  
 ### Relational Model
 - Users (<ins>user_id</ins>, user_name, user_email, password, darkmode)
-- Documents (<ins>document_id</ins>, user_id(FK), document_title, document_status, date_created, date_modified)
-- Notes (<ins>note_id</ins>, document_id(FK), parent_note(FK), order_of_appearance, note_content)
-- Flashcards (<ins>flashcard_id</ins>, note_id(FK), is_disabled, time_till_next_review)
+- Documents (<ins>document_id</ins>, *user_id(FK)*, document_title, document_status, date_created, date_modified)
+- Notes (<ins>note_id</ins>, *document_id(FK), parent_note(FK)*, order_of_appearance, note_content)
+- Flashcards (<ins>flashcard_id</ins>, *note_id(FK)*, is_disabled, time_till_next_review)
 - Hashtags (<ins>hashtag_id</ins>, hashtag_name)
-- notes_hashtags (<ins>note_id(FK), hashtag_id(FK)</ins>)
+- notes_hashtags (<ins>*note_id(FK), hashtag_id(FK)*</ins>)
  
 <br><br> <br><br> 
 ## User Stories
