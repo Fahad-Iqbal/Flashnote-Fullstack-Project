@@ -1,9 +1,9 @@
 # FlashNote
- Flashnote is a note-taking app with flashcard functionality. It makes the learning of memory intensive subjects easier. Users of the app can make notes and then test themselves on certain notes that they have turned into flash cards. If the user recalls a flashcard easily and repeatedly, then that flashcard is shown again after a longer time interval. If the user can't recall the flashcard, then it is shown again very quickly until the user begins to reliably recall that card. 
+Flashnote is a note-taking app with flashcard functionality. It makes the learning of memory intensive subjects easier. Users of the app can make notes and then test themselves on certain notes that they have turned into flash cards. If the user recalls a flashcard easily and repeatedly, then that flashcard is shown again after a longer time interval. If the user can't recall the flashcard, then it is shown again very quickly until the user begins to reliably recall that card. 
  
- The user can simply take notes or they can generate different styles of flash cards as shown in the [funtionality](https://github.com/Fahad-Iqbal/Flashnote-Fullstack-Project/edit/main/README.md#functionality) section. The user can freely share their notes with anyone or they can allow access to a select group of users. 
+The user can simply take notes or they can generate different styles of flash cards as shown in the [funtionality](https://github.com/Fahad-Iqbal/Flashnote-Fullstack-Project/edit/main/README.md#functionality) section. The user can freely share their notes with anyone or they can allow access to a select group of users. 
 
- The demo page can be viewed [here](https://fahad-iqbal.github.io/Flashnote-Fullstack-Project/main-page.html).
+The demo page can be viewed [here](https://fahad-iqbal.github.io/Flashnote-Fullstack-Project/main-page.html).
 
  
  
@@ -28,10 +28,19 @@ The purpose of the FlashNote database is to store user generated notes and flash
 - Generate flashcards with the information from the note/bullet point that the flashcard is based on
 - Store information on the time interval, after which the flashcard should be practiced again
  
- <br><br>
- ![image](https://user-images.githubusercontent.com/14140389/225797191-c245e19f-8eb6-42e0-ae54-bcb58dbfa46a.png)
+
+### ER Diagram
+![image](https://user-images.githubusercontent.com/14140389/225797191-c245e19f-8eb6-42e0-ae54-bcb58dbfa46a.png)
  
+### Relational Model
+- Users (<ins>user_id</ins>, user_name, user_email, password, darkmode)
+- Documents (<ins>document_id</ins>, user_id(FK), document_title, document_status, date_created, date_modified)
+- Notes (<ins>note_id</ins>, document_id(FK), parent_note(FK), order_of_appearance, note_content)
+- Flashcards (<ins>flashcard_id</ins>, note_id(FK), is_disabled, time_till_next_review)
+- Hashtags (<ins>hashtag_id</ins>, hashtag_name)
+- notes_hashtags (<ins>note_id(FK), hashtag_id(FK)</ins>)
  
+<br><br> <br><br> 
 ## User Stories
 
 > As a psychology student, I want to be able to make well organized notes, generate flashcards easily, and test myself in one app. 
