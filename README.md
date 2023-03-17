@@ -28,6 +28,9 @@ The purpose of the FlashNote database is to store user generated notes and flash
 - Generate flashcards with the information from the note/bullet point that the flashcard is based on
 - Store information on the time interval, after which the flashcard should be practiced again
  
+ <br><br>
+ ![image](https://user-images.githubusercontent.com/14140389/225797191-c245e19f-8eb6-42e0-ae54-bcb58dbfa46a.png)
+ 
  
 ## User Stories
 
@@ -51,6 +54,8 @@ Here is the [Figma link](https://www.figma.com/file/qLDlZ9jFJyVfCwlUggwRTH/Flash
 - The arrows in the notes are different because the original arrows didn't render well on the webpage
 - A dark mode button was added
 - Extra flashcards were added
+
+
 
 ## Functionality
 
