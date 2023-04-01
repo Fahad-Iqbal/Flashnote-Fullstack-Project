@@ -101,7 +101,7 @@ CREATE TABLE hashtags (
     updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
     PRIMARY KEY (hashtag_id)
 );
--- notes_hashtags (note_id(FK), hashtag_id(FK))
+
 CREATE TABLE notes_hashtags (
     note_id INT NOT NULL,
     hashtag_id INT NOT NULL,
