@@ -31,13 +31,13 @@ The purpose of the FlashNote database is to store user generated notes and flash
  
 
 ### ER Diagram
-![image](https://user-images.githubusercontent.com/14140389/225797191-c245e19f-8eb6-42e0-ae54-bcb58dbfa46a.png)
+![image](https://user-images.githubusercontent.com/14140389/229261387-8f3b7dbd-dce3-4a71-80fa-4c2e8c710106.png)
  
 ### Relational Model
 - Users (<ins>user_id</ins>, user_name, user_email, password, darkmode)
 - Documents (<ins>document_id</ins>, *user_id(FK)*, document_title, document_status, date_created, date_modified)
 - Notes (<ins>note_id</ins>, *document_id(FK), parent_note(FK)*, order_of_appearance, note_content)
-- Flashcards (<ins>flashcard_id</ins>, *note_id(FK)*, is_disabled, time_till_next_review)
+- Flashcards (<ins>flashcard_id</ins>, *note_id(FK)*, prompt, response, is_disabled, time_for_next_review)
 - Hashtags (<ins>hashtag_id</ins>, hashtag_name)
 - notes_hashtags (<ins>*note_id(FK), hashtag_id(FK)*</ins>)
  
