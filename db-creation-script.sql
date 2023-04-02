@@ -48,7 +48,7 @@ CREATE TABLE notes (
     CONSTRAINT fk_notes_document_id FOREIGN KEY (document_id)
         REFERENCES documents (document_id)
         ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT fk_notes_note_id FOREIGN KEY (parent_note)
+    FOREIGN KEY (parent_note)
         REFERENCES notes (note_id)
 );
 
