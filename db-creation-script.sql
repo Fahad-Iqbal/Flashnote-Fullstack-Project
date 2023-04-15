@@ -154,7 +154,33 @@ WHERE
 END//
 
 
+DELIMITER //
 
+CREATE PROCEDURE insert_note(IN position INT, IN doc_id INT, IN n_content VARCHAR(5000))
+BEGIN
+  
+  DECLARE max_ord INT;
+  DECLARE ord INT;
+  DECLARE note_to_update_id INT;
+ 
+  SET ord = position;
+  SET max_ord = (SELECT MAX(order_of_appearance) FROM notes WHERE document_id = doc_id); 
+
+
+   WHILE max_ord >= position DO
+   
+	SET note_to_update_id = (SELECT note_id FROM notes WHERE order_of_appearance = max_ord AND document_id = doc_id);
+	UPDATE notes 
+SET 
+    order_of_appearance = max_ord + 1
+WHERE
+    note_id = note_to_update_id;
+	SET max_ord = max_ord - 1;
+     
+END WHILE;
+INSERT INTO notes (document_id, order_of_appearance, note_content) VALUES (doc_id, position, n_content);
+	
+END//
 
 
 
