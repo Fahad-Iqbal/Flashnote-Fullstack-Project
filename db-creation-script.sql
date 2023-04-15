@@ -122,6 +122,36 @@ CREATE TABLE notes_hashtags (
 
 
 
+DELIMITER //
+
+CREATE procedure delete_note(in n_id int)
+BEGIN
+  
+  declare max_ord INT;
+  declare ord INT;
+  declare doc_id INT;
+  declare note_to_update_id INT;
+  SET ord = (select order_of_appearance from notes where note_id = n_id);
+  set doc_id = (select document_id from notes where note_id = n_id);
+  set max_ord = (select max(order_of_appearance) from notes where document_id = doc_id); 
+
+
+   WHILE ord < max_ord DO
+   
+	SET note_to_update_id = (select note_id from notes where order_of_appearance = ord + 1 and document_id = doc_id);
+	UPDATE notes 
+	SET 
+		order_of_appearance = ord
+	WHERE
+		note_id = note_to_update_id;
+	SET ord = ord + 1;
+     
+   END WHILE;
+DELETE FROM notes 
+WHERE
+    note_id = n_id;
+	
+END//
 
 
 
