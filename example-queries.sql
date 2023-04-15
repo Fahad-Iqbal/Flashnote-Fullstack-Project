@@ -127,8 +127,13 @@ WHERE
         AND u.user_id = 4;
 
 
-
-
+-- show all flashcards that need to be practiced, i.e time_for_next_review < now()
+SELECT 
+    *
+FROM
+    flashcards
+WHERE
+    time_for_next_review < NOW();
 
 
 
