@@ -1,6 +1,6 @@
-drop database if exists flashnote_db;
-create database flashnote_db;
-use flashnote_db;
+DROP DATABASE IF EXISTS flashnote_db;
+CREATE DATABASE flashnote_db;
+USE flashnote_db;
 
 -- Relational Model
 -- Users (user_id, user_name, user_email, password, created_at, updated_at)
@@ -25,7 +25,9 @@ CREATE TABLE users (
 
 CREATE TABLE documents (
     document_id INT AUTO_INCREMENT,
+    owner_id INT NOT NULL,
     user_id INT NOT NULL,
+    is_editable TINYINT DEFAULT 1,
     document_title VARCHAR(255) NOT NULL DEFAULT 'Untitled Document',
     document_status VARCHAR(10) NOT NULL DEFAULT 'draft',
     created_at TIMESTAMP NOT NULL DEFAULT NOW(),
@@ -33,14 +35,18 @@ CREATE TABLE documents (
     PRIMARY KEY (document_id),
     CONSTRAINT fk_documents_user_id FOREIGN KEY (user_id)
         REFERENCES users (user_id)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+	CONSTRAINT fk_documents_owner_id FOREIGN KEY (owner_id)
+        REFERENCES users (user_id)
         ON DELETE CASCADE ON UPDATE CASCADE
+    
 );
 
 CREATE TABLE notes (
     note_id INT AUTO_INCREMENT,
     document_id INT NOT NULL,
     parent_note INT,
-    order_of_appearance INT NOT NULL,
+    order_of_appearance VARCHAR(50) NOT NULL,
     note_content VARCHAR(5000) NOT NULL DEFAULT '',
     created_at TIMESTAMP NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
@@ -48,8 +54,9 @@ CREATE TABLE notes (
     CONSTRAINT fk_notes_document_id FOREIGN KEY (document_id)
         REFERENCES documents (document_id)
         ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (parent_note)
+    CONSTRAINT fk_notes_parent_note FOREIGN KEY (parent_note)
         REFERENCES notes (note_id)
+        ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 CREATE TABLE flashcards (
