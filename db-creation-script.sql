@@ -17,7 +17,7 @@ CREATE TABLE users (
     user_id INT AUTO_INCREMENT,
     user_name VARCHAR(50) UNIQUE NOT NULL,
     user_email VARCHAR(255) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
+    user_password VARCHAR(255) NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
     PRIMARY KEY (user_id)
@@ -25,9 +25,7 @@ CREATE TABLE users (
 
 CREATE TABLE documents (
     document_id INT AUTO_INCREMENT,
-    owner_id INT NOT NULL,
     user_id INT NOT NULL,
-    is_editable TINYINT DEFAULT 1,
     document_title VARCHAR(255) NOT NULL DEFAULT 'Untitled Document',
     document_status VARCHAR(10) NOT NULL DEFAULT 'draft',
     created_at TIMESTAMP NOT NULL DEFAULT NOW(),
@@ -35,18 +33,14 @@ CREATE TABLE documents (
     PRIMARY KEY (document_id),
     CONSTRAINT fk_documents_user_id FOREIGN KEY (user_id)
         REFERENCES users (user_id)
-        ON DELETE CASCADE ON UPDATE CASCADE,
-	CONSTRAINT fk_documents_owner_id FOREIGN KEY (owner_id)
-        REFERENCES users (user_id)
-        ON DELETE CASCADE ON UPDATE CASCADE
-    
+        ON DELETE CASCADE ON UPDATE CASCADE    
 );
 
 CREATE TABLE notes (
     note_id INT AUTO_INCREMENT,
     document_id INT NOT NULL,
     parent_note INT,
-    order_of_appearance VARCHAR(50) NOT NULL,
+    order_of_appearance INT NOT NULL,
     note_content VARCHAR(5000) NOT NULL DEFAULT '',
     created_at TIMESTAMP NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
