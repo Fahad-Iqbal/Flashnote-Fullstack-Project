@@ -34,20 +34,39 @@ FROM
         JOIN
     users AS u ON d.user_id = u.user_id
 WHERE
-    u.user_id = 1 AND d.document_id = 2
+    u.user_id = 1 AND d.document_id = 1
 ORDER BY order_of_appearance; 
 
 
 -- select the titles of all documents that belong to a specific user
-select document_title as "Your Documents" from documents join users on documents.user_id = users.user_id where users.user_id = 1;
+SELECT 
+    document_title AS 'Your Documents'
+FROM
+    documents
+        JOIN
+    users ON documents.user_id = users.user_id
+WHERE
+    users.user_id = 1;
 
 
 -- change order_of_appearance for notes when a note is deleted
 -- this example uses a stored procedure to delete a note with note_id = 1, and changes the order of appearance for all the following notes
 CALL delete_note(1);
+select * from notes where document_id = 1;
+
+-- insert a new note and change order_of_appearance for the preceding notes using a stored procedure
+-- insert_note(IN position INT, IN doc_id INT, IN n_content VARCHAR(5000))
+CALL insert_note(7, 1, "New Note");
+SELECT order_of_appearance, note_content FROM notes WHERE document_id = 1 ORDER BY order_of_appearance;
 
 
--- change order_of_appearance for notes when a note is moved to a different place
+-- given the note_id and some string, update the note_content of a note 
+UPDATE notes 
+SET 
+    note_content = 'Change this note'
+WHERE
+    note_id = 4;
+
 
 -- given a document_id, search a document by search string
 SELECT 
