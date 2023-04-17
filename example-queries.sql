@@ -142,7 +142,10 @@ WHERE
 -- update flashcard time_for_next_review given a flashcard_id
 
 /* I've learned that MySQL doesn't like to update the same table that it is reading from 
- so I had to split this into 2 queries */
+ so I had to split this into 2 queries
+ First store the value of a new datetime value into a variable called @NewReviewTime
+ Then update the value for time_for_next_review with @NewReviewTime
+*/
 
 SELECT DATE_ADD((SELECT time_for_next_review FROM flashcards WHERE flashcard_id = 5), INTERVAL 4 HOUR) INTO @NewReviewTime;
 UPDATE flashcards SET time_for_next_review = @NewReviewTime WHERE flashcard_id = 5;
