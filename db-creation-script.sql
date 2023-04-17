@@ -12,7 +12,6 @@ USE flashnote_db;
 -- Hashtags (hashtag_id, hashtag_name, created_at, updated_at)
 -- notes_hashtags (note_id(FK), hashtag_id(FK))
 
-
 CREATE TABLE users (
     user_id INT AUTO_INCREMENT,
     user_name VARCHAR(50) UNIQUE NOT NULL,
@@ -33,7 +32,7 @@ CREATE TABLE documents (
     PRIMARY KEY (document_id),
     CONSTRAINT fk_documents_user_id FOREIGN KEY (user_id)
         REFERENCES users (user_id)
-        ON DELETE CASCADE ON UPDATE CASCADE    
+        ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE notes (
@@ -68,6 +67,12 @@ CREATE TABLE flashcards (
         ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+ /* I altered the table by dropping 2 columns because they contain 
+  duplicate information that is available in the notes table */
+  
+ALTER TABLE flashcards DROP COLUMN prompt, DROP COLUMN response;
+DESCRIBE flashcards;
+
 CREATE TABLE images (
     image_id INT AUTO_INCREMENT,
     note_id INT NOT NULL,
@@ -79,6 +84,7 @@ CREATE TABLE images (
         REFERENCES notes (note_id)
         ON DELETE CASCADE ON UPDATE CASCADE
 );
+
 
 CREATE TABLE occulsions (
     occulsion_id INT AUTO_INCREMENT,
@@ -115,80 +121,69 @@ CREATE TABLE notes_hashtags (
         ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-
-
-
-
-
-
-
 DELIMITER //
-
-CREATE procedure delete_note(in n_id int)
+CREATE PROCEDURE get_flashcard_context(IN flash_id INT)
 BEGIN
-  
-  declare max_ord INT;
-  declare ord INT;
-  declare doc_id INT;
-  declare note_to_update_id INT;
-  SET ord = (select order_of_appearance from notes where note_id = n_id);
-  set doc_id = (select document_id from notes where note_id = n_id);
-  set max_ord = (select max(order_of_appearance) from notes where document_id = doc_id); 
+	WITH RECURSIVE context_cte AS ( 
+
+	   SELECT notes.note_id,   -- base case: finds the note associated with the provided flashcard_id
+			  note_content, 
+			  parent_note,
+			  order_of_appearance
+	   FROM notes JOIN flashcards on notes.note_id = flashcards.note_id 
+	   WHERE flashcards.flashcard_id = flash_id
+
+	   UNION ALL  -- adds further entries to the base case
+
+	   SELECT n.note_id,
+			  n.note_content,
+			  n.parent_note, 
+			  n.order_of_appearance
+	   FROM notes n
+		 JOIN context_cte AS cte ON cte.parent_note = n.note_id -- recursively selects parent_notes from the earlier entries in the cte
+	)
+	SELECT note_content
+	FROM context_cte where context_cte.note_id != (select f.note_id from flashcards as f where f.flashcard_id = flash_id) ORDER BY order_of_appearance;
+END //
 
 
-   WHILE ord < max_ord DO
-   
-	SET note_to_update_id = (select note_id from notes where order_of_appearance = ord + 1 and document_id = doc_id);
-	UPDATE notes 
-	SET 
-		order_of_appearance = ord
-	WHERE
-		note_id = note_to_update_id;
-	SET ord = ord + 1;
-     
+
+DELIMITER // 
+CREATE PROCEDURE delete_note(IN n_id INT) 
+BEGIN
+   DECLARE max_ord INT;
+   DECLARE ord INT;
+   DECLARE doc_id INT;
+   DECLARE note_to_update_id INT;
+   SET ord = (SELECT order_of_appearance FROM notes WHERE note_id = n_id);
+   SET doc_id = (SELECT document_id FROM notes WHERE note_id = n_id);
+   SET max_ord = (SELECT MAX(order_of_appearance) FROM notes WHERE document_id = doc_id);
+
+   WHILE ord < max_ord DO 
+      SET note_to_update_id = (SELECT note_id FROM notes WHERE order_of_appearance = ord + 1 AND document_id = doc_id);
+      UPDATE notes SET order_of_appearance = ord WHERE note_id = note_to_update_id;
+      SET ord = ord + 1;
    END WHILE;
-DELETE FROM notes 
-WHERE
-    note_id = n_id;
-	
-END//
+
+   DELETE FROM notes WHERE note_id = n_id;
+END// 
+
 
 
 DELIMITER //
-
-CREATE PROCEDURE insert_note(IN position INT, IN doc_id INT, IN n_content VARCHAR(5000))
+CREATE PROCEDURE insert_note(IN note_position INT, IN doc_id INT, IN n_content VARCHAR(5000)) 
 BEGIN
-  
-  DECLARE max_ord INT;
-  DECLARE ord INT;
-  DECLARE note_to_update_id INT;
- 
-  SET ord = position;
-  SET max_ord = (SELECT MAX(order_of_appearance) FROM notes WHERE document_id = doc_id); 
-
-
-   WHILE max_ord >= position DO
+   DECLARE max_order INT;
+   DECLARE ord INT;
+   DECLARE note_to_update_id INT;
+   SET ord = note_position;
+   SET max_order = (SELECT MAX(order_of_appearance) FROM notes WHERE document_id = doc_id);
    
-	SET note_to_update_id = (SELECT note_id FROM notes WHERE order_of_appearance = max_ord AND document_id = doc_id);
-	UPDATE notes 
-SET 
-    order_of_appearance = max_ord + 1
-WHERE
-    note_id = note_to_update_id;
-	SET max_ord = max_ord - 1;
-     
-END WHILE;
-INSERT INTO notes (document_id, order_of_appearance, note_content) VALUES (doc_id, position, n_content);
-	
-END//
-
-
-
-
-
-
-
-
-
-
-
+   WHILE max_order >= note_position DO 
+      SET note_to_update_id = (SELECT note_id FROM notes WHERE order_of_appearance = max_order AND document_id = doc_id);
+      UPDATE notes SET order_of_appearance = max_order + 1 WHERE note_id = note_to_update_id;
+      SET max_order = max_order - 1;
+   END WHILE;
+   
+   INSERT INTO notes (document_id, order_of_appearance, note_content) VALUES (doc_id, note_position, n_content);
+END //
